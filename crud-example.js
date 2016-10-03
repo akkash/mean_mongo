@@ -13,7 +13,12 @@ mongodb.MongoClient.connect(uri,function(error,db){
     title : "Jaws",
     year: 1975,
     director: 'Steven Spielberg',
-    rating: 'PG'
+    rating: 'PG',
+    ratings: {
+      critics: 80,
+      audience:97
+    },
+    screenplay: ['Peter Benchley','Carl Gotlieb']
   };
 
   db.collection('movies').insert(doc,function(error,result){
@@ -22,7 +27,7 @@ mongodb.MongoClient.connect(uri,function(error,db){
       process.exit(1);
     }
 
-  db.collection('movies').find().toArray(function(error,docs){
+  db.collection('movies').find({screenplay: 'Peter Benchley'}).toArray(function(error,docs){
     if(error){
       console.log(error);
       process.exit(1);
