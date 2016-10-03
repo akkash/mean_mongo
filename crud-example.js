@@ -16,7 +16,7 @@ mongodb.MongoClient.connect(uri,function(error,db){
     rating: 'PG'
   };
 
-  db.collection('movies'),insert(doc,function(error,result){
+  db.collection('movies').insert(doc,function(error,result){
     if(error){
       console.log(error);
       process.exit(1);
