@@ -15,7 +15,7 @@ var schema = new mongoose.Schema({
   _id : {type:String, required: true },
   title: {type:String, required:true,maxlength:140 },
   description : {type: String, required:true },
-  requirements: [{type:string, ref:'Course'}]
+  requirements: [{type:String, ref:'Course'}]
 });
 
 module.exports = schema;
